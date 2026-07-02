@@ -10,23 +10,23 @@ addEventListener('notificationPoll', async (resolve, reject, args) => {
     } else if (args && args.mobileDeviceId === null) {
       CapacitorKV.remove('autoDoorNotificationMobileDeviceId');
     }
-    if (args && args.apiBaseUrl) {
-      CapacitorKV.set('autoDoorNotificationApiBaseUrl', args.apiBaseUrl);
+    if (args && args.webAppOrigin) {
+      CapacitorKV.set('autoDoorNotificationWebAppOrigin', args.webAppOrigin);
     }
 
     const tokenResult = CapacitorKV.get('autoDoorNotificationPollToken');
     const mobileDeviceIdResult = CapacitorKV.get('autoDoorNotificationMobileDeviceId');
-    const apiBaseUrlResult = CapacitorKV.get('autoDoorNotificationApiBaseUrl');
+    const webAppOriginResult = CapacitorKV.get('autoDoorNotificationWebAppOrigin');
     const token = tokenResult && tokenResult.value;
     const mobileDeviceId = mobileDeviceIdResult && mobileDeviceIdResult.value;
-    const apiBaseUrl = apiBaseUrlResult && apiBaseUrlResult.value;
+    const webAppOrigin = webAppOriginResult && webAppOriginResult.value;
 
-    if (!token || !mobileDeviceId || !apiBaseUrl) {
+    if (!token || !mobileDeviceId || !webAppOrigin) {
       resolve();
       return;
     }
 
-    const response = await fetch(`${apiBaseUrl}/api/rest/notifications/mobile-devices/${mobileDeviceId}/poll`, {
+    const response = await fetch(`${webAppOrigin}/api/rest/notifications/mobile-devices/${mobileDeviceId}/poll`, {
       method: 'POST',
       headers: {
         'X-Notification-Token': token,
