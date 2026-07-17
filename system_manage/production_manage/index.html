@@ -5,12 +5,40 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>自动门管理平台</title>
-<link rel="stylesheet" href="/umi.7f727940.css">
+<link rel="stylesheet" href="/umi.ada6776e.css">
+<script>
+(function () {
+  var mobileMaxWidthQuery = window.matchMedia('(max-width: 576px)');
+
+  var updateViewport = function () {
+    var viewport = document.querySelector('meta[name="viewport"]');
+
+    if (!viewport) {
+      return;
+    }
+
+    viewport.setAttribute(
+      'content',
+      mobileMaxWidthQuery.matches
+        ? 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'
+        : 'width=device-width, initial-scale=1.0, viewport-fit=cover',
+    );
+  };
+
+  updateViewport();
+
+  if (mobileMaxWidthQuery.addEventListener) {
+    mobileMaxWidthQuery.addEventListener('change', updateViewport);
+  } else {
+    mobileMaxWidthQuery.addListener(updateViewport);
+  }
+})();
+      </script>
 <script async src="/scripts/loading.js"></script>
-<script src="/preload_helper.f2304dd8.js"></script>
+<script src="/preload_helper.b252244f.js"></script>
 </head>
 <body>
 <div id="root"></div>
-<script src="/umi.73797590.js"></script>
+<script src="/umi.ace358c1.js"></script>
 </body>
 </html>
