@@ -1,0 +1,10 @@
+{
+  "name": "auto-door-front",
+  "description": "海德伯格自动门系统前端",
+  "installCommand": "",  // 不由 ESA 负责构建
+  "buildCommand": "",    // 不由 ESA 负责构建
+  "assets": {
+    "directory": "./",
+    "notFoundStrategy": "singlePageApplication"
+  }
+}
