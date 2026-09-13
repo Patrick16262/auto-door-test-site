@@ -4,8 +4,7 @@
  */
 (function () {
   const _root = document.querySelector('#root');
-  if (_root && _root.innerHTML === '') {
-    _root.innerHTML = `
+  const defaultLoadingHtml = `
       <style>
         html,
         body,
@@ -198,5 +197,54 @@
         </div>
       </div>
     `;
+
+  const branchLogoLoadingHtml = `
+      <style>
+        html,
+        body,
+        #root {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
+        #root {
+          background: #fff;
+        }
+
+        .branch-logo-loading {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 362px;
+        }
+
+        .branch-logo-loading-image {
+          width: 192px;
+          height: 48px;
+          object-fit: contain;
+        }
+      </style>
+
+      <div class="branch-logo-loading">
+        <img class="branch-logo-loading-image" alt="logo" />
+      </div>
+    `;
+
+  if (_root && _root.innerHTML === '') {
+    let branchLogoUrl;
+    try {
+      branchLogoUrl = JSON.parse(localStorage.getItem('autoDoorPersistedUserInfo') || '{}').branchLogoUrl;
+    } catch {
+      // 无法读取缓存用户信息时，继续展示默认加载页。
+    }
+
+    if (branchLogoUrl) {
+      _root.innerHTML = branchLogoLoadingHtml;
+      _root.querySelector('.branch-logo-loading-image').src = branchLogoUrl;
+    } else {
+      _root.innerHTML = defaultLoadingHtml;
+    }
   }
 })();
