@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>自动门管理平台</title>
+<link rel="stylesheet" href="/umi.342a7fd7.css">
+<script>
+(function () {
+  var mobileMaxWidthQuery = window.matchMedia('(max-width: 576px)');
+
+  var updateViewport = function () {
+    var viewport = document.querySelector('meta[name="viewport"]');
+
+    if (!viewport) {
+      return;
+    }
+
+    viewport.setAttribute(
+      'content',
+      mobileMaxWidthQuery.matches
+        ? 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'
+        : 'width=device-width, initial-scale=1.0, viewport-fit=cover',
+    );
+  };
+
+  updateViewport();
+
+  if (mobileMaxWidthQuery.addEventListener) {
+    mobileMaxWidthQuery.addEventListener('change', updateViewport);
+  } else {
+    mobileMaxWidthQuery.addListener(updateViewport);
+  }
+})();
+      </script>
+<script async src="/scripts/loading.js"></script>
+<script src="/preload_helper.0d6e43f6.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script src="/umi.ec38939f.js"></script>
+</body>
+</html>
