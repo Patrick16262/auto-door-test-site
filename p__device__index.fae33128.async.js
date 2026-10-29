@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkauto_door=self.webpackChunkauto_door||[]).push([[4060],{416:function(D,n,e){e.r(n);var c=e(67294),u=e(61863),t=e(49158),a=e(6353),s=e(85893),r=function(){var _=(0,t.S)(),o=_.currentUser,E=o.rolePermission.includes("user");return(0,s.jsx)(u.u1,{title:"\u6211\u7684\u8BBE\u5907",children:(0,s.jsx)(a.Z,{canShowAllDevice:E})})};n.default=r}}]);
